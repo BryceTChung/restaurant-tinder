@@ -1,0 +1,324 @@
+/*--------------------Winner View----------------------------*/
+
+#winnerHeader {
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  padding-top: 20px;
+  color: gold;
+}
+
+@media(min-width: 601px) {
+  #winnerHeader {
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    color: gold;
+  }
+}
+
+
+/*----STARTING-WAITING-ROOM-VIEW-1----------------------------*/
+
+@media(max-width: 600px) {
+  #view1 {
+      background-color: #ff6b6b;
+      height: 10000px;
+      padding-top: 100px;  
+  }
+}
+
+#image1 {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+  flex-direction: column;
+}
+#img_wrapper1 {
+  width: 100%;
+  height:auto;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+#img1 {
+  width:100%;
+  height:100%;
+  max-width: 500px;
+  max-height: 500px;
+  
+  border-radius: 25px;
+}
+
+#waiting {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 50px;
+}
+
+
+
+
+
+/*/----GET-RESTAURANTS-VIEW-2----------------------------*/
+
+body{ 
+  
+  width:100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #ff6b6b;
+}
+
+@media(max-width: 600px) {
+  body {
+    background-color: white;
+  }
+}
+
+#main {
+/*   background-color: #ff6b6b; */
+  
+  display: none;
+  flex-direction: column;
+/*   justify-content: center; */
+  height:100vh;
+  align-items: center;
+}
+
+#main-app-view {
+  height: 100%;
+  border-radius: 25px;
+  background-color: white;
+}
+
+@media(min-width: 601px) { 
+  #main-app-view {
+    height: 80%;
+    
+    background-color: white;
+    max-width: 500px;
+  }
+}
+
+@media(min-width: 601px) {
+  #main { 
+    background-color: #ff6b6b;
+    
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
+
+
+/*-------IMAGE BOX--------*/
+
+#pic_box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content:center;
+  
+  height: 55%;
+}
+
+@media(min-width: 601px) {
+  #pic_box { 
+    height: 55%;
+  }
+}
+
+
+
+#image {
+  display: flex;
+/*   align-items: center; */
+  justify-content: center;
+  width: 100%;
+}
+#img_wrapper {
+  width: 100%;
+  height:auto;
+  display: flex;
+  justify-content: center;
+}
+
+#img {
+  width:100%;
+  height:100%;
+  max-width: 600px;
+  
+  border-radius: 25px;
+}
+
+
+/*-----INFO BOX---------*/
+
+#info_box {
+  display: flex;
+  flex-direction: column;
+  max-width: 90vw;
+  align-items: center;
+  
+  padding: 25px;
+  padding-top: 40px;
+}
+
+@media(min-width: 601px) {
+  #info_box {
+    max-width: 500px;
+  }
+}
+
+#name_price{
+  display:flex;
+  width:100%;
+  flex-direction: row;
+}
+
+@media(min-width: 601px) {
+  #name_price{
+    width:100%;
+  }
+}
+
+
+#name {
+  display: flex;
+  width:80%;
+  font-size:28px;
+  font-weight: bold;
+}
+#price {
+  display: flex;
+  justify-content:flex-end;
+  font-size:35px;
+  width:20%;
+}
+
+
+#stars {
+  display: flex;
+  align-self: flex-start;
+  
+  font-size: 25px;
+  padding-top: 20px;
+}
+
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+    padding-right: 8px;
+}
+
+#address {
+    display: flex;
+    align-self: flex-start;
+    font-size: 25px;
+    padding-top: 25px;
+}
+
+#num_votes {
+  
+  display: flex;
+  align-self: flex-start;
+  font-size: 25px;
+/*   padding-top: 25px; */
+}
+
+#like_box{
+  display: flex;
+    flex-direction: row;
+    padding-top: 25px;
+    align-self: flex-start;
+    font-size: 25px;
+}
+
+/*-----VOTING BOX---------*/
+
+
+
+
+
+#voting_box {
+  display: flex;
+  justify-content: center;
+  
+}
+
+#yes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 100px;
+    color: #ff6b6b;
+}
+
+#no {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 100px;
+    color: #ff6b6b;
+}
+
+#yes:hover {
+  cursor: pointer;
+}
+
+#no:hover {
+  cursor: pointer;
+}
+
+@media(min-width: 601px) {
+  #voting_box {
+    display: none;
+  }
+}
+
+.outer-icon:hover{
+  cursor: pointer;
+}
+
+#outer-yes {
+  display: none;
+}
+
+#outer-no {
+  display: none;
+}
+
+@media(min-width: 601px) {
+  #outer-yes {
+    display: flex;
+  }
+}
+
+@media(min-width: 601px) {
+  #outer-no {
+    display: flex;
+  }
+}
+
+.outer-icon {
+  width: 13%;
+  padding: 40px;
+  
+  max-width: 115px;
+}
+
+.votingIcon {
+  font-size: 30px;
+
+}
+
+
+

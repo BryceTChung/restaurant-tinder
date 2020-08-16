@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>Welcome to Glitch!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./homeStyle.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+    <!--Have to load JS packages before any other js file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.js"></script>
+    
+    
+  </head>
+  <body>
+    <!-- mainViewOne is turned on until button is pressed -->
+    <main id="mainViewOne">
+      <div id="innerBox" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div id="home-title">Restaurant Tinder </div>
+        <div id="startGameBtn">Start Game </div>
+      </div>
+    </main>
+    
+    
+    
+    <!-- mainViewTwo is turned off until button is pressed -->
+    <main id="mainViewTwo">
+      <div id="home-title2">Restaurant Tinder</div>
+      <div id="inputArea">
+        <div id="searchboxes">
+          <div id="search1" class="search">
+            <textarea id="search1Input" placeholder="Enter location..."> Davis </textarea>
+          </div>
+          <div id="search2" class="search">
+            <input class="awesomplete" id="search2Input" placeholder="Enter keywords..." />
+          </div>
+        </div>
+        <div id="getRestaurantsBtn">Get Restaurants </div>
+      </div>
+      <div id="linkToShareContainer">
+        <p id="linkToShareTitle">Share With Your Friends!</p>
+        <a id="linkToShare"></a>
+      </div>
+    </main>
+    
+    <script>
+      let listOfAutoFills = [];
+      handleAutoFill();
+      
+      let yelpKeywords = listOfAutoFills;
+      let inputKeyword = document.getElementById("search2Input");
+      var awesomplete = new Awesomplete(inputKeyword);
+      
+      awesomplete.list = yelpKeywords;
+      
+      
+      function handleAutoFill() {
+
+          const xhr = new XMLHttpRequest();
+
+          //Set to POST because we want to send JSON, GET request can only send data via query string which is annoying so no ty
+          xhr.open("GET", "https://ten-coal-infinity.glitch.me/getAutoFillJsonData", true);
+          xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+          xhr.onloadend = function(e) {
+            let parsedAutoFillsJson = JSON.parse(xhr.responseText);
+
+            for (var key in parsedAutoFillsJson) {
+              let obj = parsedAutoFillsJson[key];
+
+              if(obj.hasOwnProperty("parents")) {
+                //handles categories on layer 2 of JSON Obj
+                if (obj.parents[0] == "restaurants"){
+
+                  autoFillsDataFilter(obj);
+
+                //handles categories on layer 3 of JSON Obj
+                } else {
+                  //can handle if not if parent field is not restaurants
+                }
+                
+              }
+
+            }//end of outermost for loop
+
+          }; // end of callback
+
+          xhr.send();
+        }
+
+        function autoFillsDataFilter(obj){
+            //if the US is not blacklist, can add this category to listOfAutoFills
+            if (obj.hasOwnProperty("country_blacklist")) {
+              let USisBlackListed = false;
+              var region;
+              for (region in obj.country_blacklist){
+                if(region == "US"){
+                  USisBlackListed = true;
+                }
+              }
+              if (!USisBlackListed) {
+                listOfAutoFills.push(obj.title);
+              }
+
+            //If US is on this categories whitelist then pust it onto listOfAutoFills
+            } else if (obj.hasOwnProperty("country_whitelist")) {
+              var region;
+              for (region in obj.country_whitelist){
+                if (region == "US") {
+
+                  listOfAutoFills.push(obj.title);
+                }
+              }
+
+            //IF the object does not have a white list or black list its default is all and should be added to listOfAutoFills
+            } else {
+              listOfAutoFills.push(obj.title);
+            }
+        }
+    </script>
+    
+    <script src="/homeScript.js" ></script>
+    
+  </body>
+</html>

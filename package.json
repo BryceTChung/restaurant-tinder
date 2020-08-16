@@ -1,0 +1,38 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "express": "^4.17.1",
+    "http": "^0.0.0",
+    "swiper": "^5.4.1"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ],
+  "devDependencies": {
+    "awesomplete": "^1.1.5",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.0",
+    "sqlite3": "^4.2.0",
+    "ws": "^7.3.0",
+    "yelp-fusion": "^3.0.0"
+  }
+}
