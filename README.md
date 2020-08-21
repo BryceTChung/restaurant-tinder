@@ -4,7 +4,7 @@ ECS 162 Final Project: Restaurant Tinder. This is a Tinder-like app for restaura
 
 ## Preview
 
-![](./host view.png)
+![](./host_view.png)
 
 ## Getting Started
 
