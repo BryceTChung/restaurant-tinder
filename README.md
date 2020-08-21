@@ -3,7 +3,7 @@
 ECS 162 Final Project: Restaurant Tinder. This is a Tinder-like app for restaurant choosing when friends can't decide what to do. Users will pick a restaurant food category they might be interested in going to, and the app will bring them restaurants in their area (within 25 miles). They will click on the left button if they don't like the restaurant and right if they like it until there is only 1 restaurant left.
 
 ## Preview
-<img src="./host_view.png" height="400" ></img>
+<img src="./host_view.png" height="400" ></img> <img src="./view_1.png" height="400"></img> <img src="./winner.png" height="400"></img>
 
 ## Getting Started
 
